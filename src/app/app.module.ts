@@ -23,7 +23,7 @@ import { NoteIndexComponent } from './components/note/note-index/note-index.comp
 const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'notes', component: LoginComponent },
+  { path: 'notes', component: NoteIndexComponent },
   { path: '**', component: RegistrationComponent }
 ]
 
@@ -32,7 +32,8 @@ const routes = [
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    NoteIndexComponent
   ],
   imports: [
     BrowserModule,
