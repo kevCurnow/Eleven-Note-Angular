@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Note } from '../models/Note';
+
 
 const Api_Url = 'http://kcpelevennoteapie.azurewebsites.net/api';
 
@@ -10,6 +12,10 @@ export class NotesService {
 
   getNotes(){
     return this._http.get(`${Api_Url}/Notes` , { headers: this.getHeaders()});
+  }
+
+  createNotes(note: Note){
+    return this._http.post(`${Api_Url}/Notes`, note, { headers: this.getHeaders()});
   }
 
   private getHeaders(){
