@@ -20,13 +20,15 @@ import { NotesService } from './services/notes.service';
 import { LoginComponent } from './components/login/login.component';
 import { NoteIndexComponent } from './components/note/note-index/note-index.component';
 import { NoteCreateComponent } from './components/note/note-create/note-create.component';
+import { NoteDetailComponent } from './components/note-detail/note-detail.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'notes', children: [
       { path: '', component: NoteIndexComponent },
-      { path: 'create', component: NoteCreateComponent }
+      { path: 'create', component: NoteCreateComponent },
+      { path: 'detail/:id', component: NoteDetailComponent }
     ]
   },
   { path: '**', component: RegistrationComponent }
@@ -39,7 +41,9 @@ const routes = [
     RegistrationComponent,
     LoginComponent,
     NoteIndexComponent,
-    NoteCreateComponent
+    NoteCreateComponent,
+    NoteDetailComponent,
+    NoteDetailComponent
   ],
   imports: [
     BrowserModule,
