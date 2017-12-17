@@ -16,10 +16,10 @@ export class NoteIndexComponent implements OnInit {
   columnNames = ['details', 'NoteId', 'Title', 'IsStarred', 'CreatedUtc', 'buttons'];
   dataSource: NoteDataSource | null;
 
-  constructor(private _noteService: NotesService) { }
+  constructor(private _notesService: NotesService) { }
 
   ngOnInit() {
-    this._noteService.getNotes().subscribe((notes: Note[]) => {
+    this._notesService.getNotes().subscribe((notes: Note[]) => {
       this.dataSource = new NoteDataSource(notes);
     });
   }

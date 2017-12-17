@@ -28,7 +28,11 @@ export class NoteCreateComponent implements OnInit {
   }
 
   onSubmit(form) {
-    this._noteService.createNotes(this.noteForm.value).subscribe(data => {
+    const sendNote: Note = {
+      Title: form.value.Title,
+      Content: form.value.Content
+    };
+    this._noteService.createNotes(sendNote).subscribe(v => {
       this._router.navigate(['/notes']);
     });
   }
