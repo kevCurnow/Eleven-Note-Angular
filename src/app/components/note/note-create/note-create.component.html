@@ -1,7 +1,7 @@
 <h1>Create a Note.</h1>
 <hr>
 
-<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="_createNoteForm">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="noteForm">
   <div>
     <div>
       <mat-form-field>
@@ -14,7 +14,7 @@
       </mat-form-field>
     </div>
   </div>
-  <button mat-raised-button class="nav-btn" color="primary" type="submit" routerLink="/notes">Create Note</button>
+  <button mat-raised-button class="nav-btn" color="primary" type="submit">Create Note</button>
 </form>
 
-<a mat-button routerLink="/note">Back to List</a>
+<a mat-button routerLink="/notes/index">Back to List</a>
