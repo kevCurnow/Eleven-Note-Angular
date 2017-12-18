@@ -26,6 +26,11 @@ export class NotesService {
   updateNote(note: Note){
     return this._http.put(`${Api_Url}/Notes`, note, { headers: this.getHeaders() });
   }
+
+  deleteNote(id: number) {
+    return this._http.delete(`${Api_Url}/Notes/${id}`, { headers: this.getHeaders() });
+  }
+
   private getHeaders(){
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
