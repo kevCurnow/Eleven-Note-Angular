@@ -13,7 +13,7 @@ export class NoteCreateComponent implements OnInit {
 
   noteForm: FormGroup;
 
-  constructor(private _form: FormBuilder, private _noteService: NotesService, private _router: Router) {
+  constructor(private _form: FormBuilder, private _notesService: NotesService, private _router: Router) {
     this.createForm();
   }
 
@@ -25,14 +25,11 @@ export class NoteCreateComponent implements OnInit {
       Title: new FormControl,
       Content: new FormControl,
     });
+    
   }
 
-  onSubmit(form) {
-    const sendNote: Note = {
-      Title: form.value.Title,
-      Content: form.value.Content
-    };
-    this._noteService.createNotes(sendNote).subscribe(v => {
+  onSubmit() {
+    this._notesService.createNotes(this.noteForm.value).subscribe(data => {
       this._router.navigate(['/notes']);
     });
   }
