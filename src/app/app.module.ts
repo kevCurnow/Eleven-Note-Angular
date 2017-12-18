@@ -23,11 +23,12 @@ import { NoteCreateComponent } from './components/note/note-create/note-create.c
 import { NoteDetailComponent } from './components/note/note-detail/note-detail.component';
 import { NoteEditComponent } from './components/note/note-edit/note-edit.component';
 import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'notes', children: [
+  { path: 'notes', canActivate: [AuthGuard], children: [
       { path: '', component: NoteIndexComponent },
       { path: 'create', component: NoteCreateComponent },
       { path: 'edit/:id', component: NoteEditComponent },
@@ -65,7 +66,8 @@ const routes = [
   ],
   providers: [
     AuthService,
-    NotesService
+    NotesService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
