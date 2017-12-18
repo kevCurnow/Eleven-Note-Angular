@@ -20,6 +20,7 @@ export class NoteIndexComponent implements OnInit {
 
   ngOnInit() {
     this._noteService.getNotes().subscribe((notes: Note[]) => {
+      this.notes = notes;
       this.dataSource = new NoteDataSource(notes);
     });
   }
